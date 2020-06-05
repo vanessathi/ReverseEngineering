@@ -1,41 +1,26 @@
-# Unit 14 Sequelize Homework: Reverse Engineering Code
+## Unit 14: Sequelize Homework
+# Reverse Engineering Code
 
-Reverse engineer the starter code provided and create a tutorial for the code.
+## Description:
+This application allows users to create an account with secure login and logout capabilities using Passport and Sequelize to store the user data in a MySQL database while the application itself can authenticate every login with Express and track the login status with sessions.
 
-In the `Develop` folder, there is starter code for a project. Begin inspecting the code to get an understanding of each file's responsibility. Then, in a Google Doc, write a tutorial explaining *every* file and its purpose. If one file is dependant on other files, be sure to let the user know.
+## User Story:
+As a user, I want to sign-up, login and logout to become a member of this application.
 
-At the end of the tutorial, add instructions for how you could now add changes to this project.
+## Credits:
+Express, Express-session, MySQL, Sequelize, Passport, Passport-Local, BCryptJS
 
-Following the [common templates for user stories](https://en.wikipedia.org/wiki/User_story#Common_templates), we can frame this challenge as follows:
+## Files:
 
-```
-AS A developer
-
-I WANT a walk-through of the codebase
-
-SO THAT I can use it as a starting point for a new project
-```
-
-## Business Context
-
-When joining a new team, you will be expected to inspect a lot of code that you have never seen before. Rather than having a team member explain every line for you, you will dissect the code by yourself, saving any questions for a member of your team.
-
-## Acceptance Criteria
-
-```md
-GIVEN a Node.js application using Sequelize and Passport
-WHEN I follow the walkthrough
-THEN I understand the codebase
-```
-- - -
-
-## Submission on BCS
-
-You are required to submit the following:
-
-* A link to a Google Doc or video explaining the application in `Develop/`. 
-
-_Note: Don't forget to change the sharing settings on your Google Doc._
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+* isAuthenticated.js restricts routes, will either send the user to the login page or request to the restricted route.
+* Config.json - configuration to connect to the server/databases
+* Passport.js - sign in with email and password 
+* Index.js - Imports user login data and connects to DB
+* User.js - Uses bcryptjs for password hashing and creates a secure user model
+* Login.js make sures there is login data values and does a post, and will redirect you to the members page
+* Members.js does a get request to make sure user is logged in
+* Signup.js pulls up the form, validates email and password requirements and calls the signUpUser function
+* Api-routes.js - includes sign-in, log-in and log-out routes while getting appropriate data for the client
+* Html-routes.js checks whether user is signed in and/or has an account
+* Package.json - has all the packages/dependencies and their versions information
+* Server.js - requires packages and routes, creates express and configures middleware, and syncs the database
